@@ -6,6 +6,8 @@ ascii_art='________                  __        ___.
 /    |    \  Y Y  \/ __ \|    <|  |  / \_\ \
 \_______  /__|_|  (____  /__|_ \____/|___  /
         \/      \/     \/     \/         \/
+
+Customized for Sifatul Rabbi
 '
 
 echo -e "$ascii_art"

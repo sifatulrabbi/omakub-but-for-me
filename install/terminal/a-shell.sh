@@ -9,3 +9,7 @@ source ~/.local/share/omakub/defaults/bash/shell
 # Configure the inputrc using Omakub defaults
 cp ~/.local/share/omakub/configs/inputrc ~/.inputrc
 cp ~/.local/share/omakub/configs/Xmodmap ~/.Xmodmap
+
+if [ -r "$HOME/.Xmodmap" ]; then
+	xmodmap "$HOME/.Xmodmap"
+fi

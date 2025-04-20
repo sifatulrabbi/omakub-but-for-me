@@ -6,6 +6,7 @@ ________                  __        ___.
 \_______  /__|_|  (____  /__|_ \____/|___  /
         \/      \/     \/     \/         \/
 
+Customized for Sifatul Rabbi
 '
 
 # Define the color gradient (shades of cyan and blue)
