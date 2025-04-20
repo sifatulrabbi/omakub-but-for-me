@@ -1,8 +1,9 @@
 [env]
 TERM = "xterm-256color"
 
-[shell]
-program = "zellij"
+# [shell]
+# TODO: might use temux by default
+# program = "zellij"
 
 [window]
 padding.x = 16
