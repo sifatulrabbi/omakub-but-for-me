@@ -26,3 +26,30 @@ sudo apt install -y \
 	tk-dev \
 	uuid-dev
 sudo apt autoremove
+
+# List of snaps to install (name → extra snap options)
+declare -A snaps=(
+	[slack]="--classic"
+	[discord]=""
+)
+
+if ! command -v snap &>/dev/null; then
+	echo "snap not found. Installing snapd…"
+	sudo apt update
+	sudo apt install -y snapd
+	# enable the snapd socket (required on systemd systems)
+	sudo systemctl enable --now snapd.socket
+else
+	echo "snap is already installed."
+fi
+
+for pkg in "${!snaps[@]}"; do
+	if ! snap list "$pkg" &>/dev/null; then
+		echo "Installing snap package: $pkg"
+		sudo snap install "$pkg" ${snaps[$pkg]}
+	else
+		echo "snap package '$pkg' is already installed."
+	fi
+done
+
+echo "Done."
