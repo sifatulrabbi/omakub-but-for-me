@@ -1,4 +1,5 @@
 CHOICES=(
+	"Keybindings   Update the keybindings"
 	"Omakub        Update Omakub itself and run any migrations"
 	"Ollama        Run LLMs, like Meta's Llama3, locally"
 	"LazyGit       TUI for Git"
@@ -20,6 +21,7 @@ else
 	"omakub") INSTALLER_FILE="$OMAKUB_PATH/bin/omakub-sub/migrate.sh" ;;
 	"localsend") INSTALLER_FILE="$OMAKUB_PATH/install/desktop/app-localsend.sh" ;;
 	"ollama") INSTALLER_FILE="$OMAKUB_PATH/install/terminal/optional/app-ollama.sh" ;;
+	"keybindings") INSTALLER_FILE="$OMAKUB_PATH/install/desktop/set-gnome-hotkeys.sh" ;;
 	*) INSTALLER_FILE="$OMAKUB_PATH/install/terminal/app-$INSTALLER.sh" ;;
 	esac
 
