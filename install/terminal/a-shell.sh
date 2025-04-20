@@ -6,10 +6,12 @@ cp ~/.local/share/omakub/configs/bashrc ~/.bashrc
 source ~/.local/share/omakub/defaults/bash/shell
 
 [ -f "~/.inputrc" ] && mv ~/.inputrc ~/.inputrc.bak
-# Configure the inputrc using Omakub defaults
+[ -f "~/.inputrc" ] && mv ~/.Xmodmap ~/.Xmodmap.bak
+[ -f "~/.inputrc" ] && mv ~/.gitconfig ~/.gitconfig.bak
+
+# Configure the inputrc, gitconfig, and Xmodmap using the defaults
 cp ~/.local/share/omakub/configs/inputrc ~/.inputrc
+cp ~/.local/share/omakub/configs/gitconfig/.gitconfig
 cp ~/.local/share/omakub/configs/Xmodmap ~/.Xmodmap
 
-if [ -r "$HOME/.Xmodmap" ]; then
-	xmodmap "$HOME/.Xmodmap"
-fi
+xmodmap "$HOME/.Xmodmap"
