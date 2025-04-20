@@ -4,6 +4,7 @@ apps=(
 	"Alacritty.desktop"
 	"Neovim.desktop"
 	"code.desktop"
+	"Slack.desktop"
 	"WhatsApp.desktop"
 	"signal-desktop.desktop"
 	"Zoom.desktop"
