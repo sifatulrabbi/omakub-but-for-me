@@ -100,3 +100,38 @@ new_project() {
     echo "Project '$project_name' setup complete."
     return 0
 }
+
+makepyenv() {
+    python3 -m venv ./.venv
+}
+
+# Function to find and activate a Python virtual environment
+# Checks for common directory names: .venv, venv, env, Python, .Python, pyenv, .pyenv
+usepyenv() {
+    local potential_dirs=(".venv" "venv" "env" "Python" ".Python" "pyenv" ".pyenv")
+    local found_env=0
+
+    local current_dir
+    current_dir=$(pwd)
+
+    for dir_name in "${potential_dirs[@]}"; do
+        local env_path="$current_dir/$dir_name"
+        local activate_script="$env_path/bin/activate"
+
+        if [[ -d "$env_path" ]]; then
+            if [[ -f "$activate_script" ]]; then
+                echo "Found Python environment in '$dir_name'. Activating..."
+                source "$activate_script"
+                found_env=1
+                return 0
+            else
+                echo "Directory '$dir_name' found, but no executable 'bin/activate' script inside."
+            fi
+        fi
+    done
+
+    if [[ "$found_env" -eq 0 ]]; then
+        echo "No suitable Python virtual environment (.venv, venv, env, Python, .Python, pyenv, .pyenv) with an activation script found in the current directory."
+        return 1
+    fi
+}
