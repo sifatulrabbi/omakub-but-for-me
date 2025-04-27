@@ -17,8 +17,8 @@ alias n='nvim'
 alias g='git'
 alias d='docker'
 alias bat='batcat'
-alias lzg='lazygit'
-alias lzd='lazydocker'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
